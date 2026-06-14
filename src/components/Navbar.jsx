@@ -55,6 +55,12 @@ export default function Navbar({ theme, toggleTheme }) {
                 Experience
               </a>
             </li>
+
+            <li className="nav-item">
+              <a className="nav-link" href="#certifications" onClick={closeMenu}>
+                Certifications
+              </a>
+            </li>
             <li className="nav-item">
               <a className="nav-link" href="#contact" onClick={closeMenu}>
                 Contact

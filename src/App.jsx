@@ -7,7 +7,7 @@ import WorkSection from './components/WorkSection';
 import SkillsSection from './components/SkillsSection';
 import ProjectsSection from './components/ProjectsSection';
 import EducationSection from './components/EducationSection';
-import CertificatesSection from './components/CertificatesSection';
+import CertificationsSection from './components/CertificationsSection';
 import ContactSection from './components/ContactSection';
 import './style.css';
 
@@ -104,9 +104,11 @@ function App() {
         <WorkSection />
       </section>
 
-      {/* Achievements & Recognition */}
+
+
+      {/* Verified Professional Certifications */}
       <section className="reveal-up">
-        <CertificatesSection />
+        <CertificationsSection />
       </section>
 
       {/* Academic Qualifications */}
