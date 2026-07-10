@@ -41,7 +41,7 @@ export default function ProfileCard() {
             A story of hardwork and perseverance.
           </h3>
           <p className="text-secondary mb-4" style={{ fontSize: 'var(--text-base)', lineHeight: '1.7' }}>
-            I am a senior full-stack engineer and technical lead based in Chennai/Coimbatore, India. I specialize in designing robust, scalable microservices architectures and pioneering intelligent AI systems utilizing Large Language Models (LLMs). With recognized achievements twice as Employee of the Year, I drive business success by combining agile teamwork, strict software engineering practices, and rapid adaptation to emerging technologies.
+            I am a senior forward-deployed engineer and AI solutions builder based in Chennai/Coimbatore, India. I specialize in designing robust, scalable agent workflows and pioneering intelligent AI systems utilizing Large Language Models (LLMs) like Claude, Gemini, and Copilot. With recognized achievements twice as Employee of the Year, I excel at taking ambiguous operational challenges, designing automation pipelines (using platforms like n8n and Power Platform), and bridging technical execution with business strategy.
           </p>
 
           {/* Core Relocation/Visa Meta info */}

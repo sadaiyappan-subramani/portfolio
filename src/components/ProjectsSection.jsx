@@ -1,17 +1,33 @@
 
 const projects = [
   {
+    title: 'Voyani',
+    status: 'Active AI Project',
+    icon: 'bi-compass-fill',
+    description: 'An AI-powered travel companion and trip orchestration platform. Automates end-to-end trip planning, scheduling, hotel/flight booking routing, and localized activity curation.',
+    bullets: [
+      'AI Planner & Orchestrator: Engineered an agentic AI scheduling engine that generates complete, customizable travel itineraries matching user preferences and budgets.',
+      'API Booking Integration: Connected flight, hotel, and transit booking APIs to automatically query, compare, and recommend optimal travel options.',
+      'Operational Event Curation: Integrated ticket and event curation endpoints to suggest and schedule localized activities like concerts, sports matches, and cinema.',
+      'Ambiguity to Action: Translating complex, unstructured user travel prompts into structured database schemas and structured JSON outputs for down-stream APIs.'
+    ],
+    tech: ['React 19', 'Node.js', 'n8n Workflows', 'Claude API', 'Gemini API', 'FastAPI', 'PostgreSQL'],
+    demoUrl: '#',
+    githubUrl: '#'
+  },
+  {
     title: 'TMS Insights (Vision Zero Analytics)',
     status: 'Featured AI Platform',
     icon: 'bi-laptop',
     description: 'A map-integrated geospatial safety analysis platform. Features an AI Safety Copilot and Grant Assistant to automate federal grant drafting, statistical crash anomaly engines, and interactive street intervention simulations.',
     bullets: [
-      'AI-Driven Analytics: Developed a map-integrated Safety Copilot & Grant Assistant using FastAPI and OpenAI to automate federal grant drafting (SS4A), reducing report preparation time by 75%.',
+      'AI-Driven Analytics: Developed a map-integrated Safety Copilot & Grant Assistant using OpenAI, Claude, and Gemini to automate federal grant drafting (SS4A), reducing report preparation time by 75%.',
       'Anomaly Detection & ML: Built Python statistical engines (Chi-Square, Z-Tests) to isolate crash hot-spots, and trained a Scikit-Learn Logistic Regression model (0.84 ROC-AUC) to predict severe crash probabilities.',
       'Geospatial Visualization: Integrated Deck.gl and MapLibre GL in React 19 to render hardware-accelerated hexagonal bins and heatmaps of 10k+ spatial records with sub-second responsive filtering.',
-      'What-If Simulator: Designed a counterfactual simulation engine utilizing FHWA Crash Modification Factors (CMF) to model street interventions.'
+      'What-If Simulator: Designed a counterfactual simulation engine utilizing FHWA Crash Modification Factors (CMF) to model street interventions.',
+      'Ambiguity to Solution: Independently designed and shipped the entire SS4A pipeline, connecting backend analysis engines with automated API webhooks to create a seamless operational workflow.'
     ],
-    tech: ['React 19', 'FastAPI', 'Deck.gl', 'PostgreSQL', 'OpenAI', 'Scikit-Learn'],
+    tech: ['React 19', 'FastAPI', 'Deck.gl', 'PostgreSQL', 'OpenAI', 'Claude', 'Gemini', 'Scikit-Learn'],
     demoUrl: '#',
     githubUrl: '#'
   },
@@ -21,12 +37,13 @@ const projects = [
     icon: 'bi-truck',
     description: 'An enterprise-grade supply chain chatbot and orders platform. Handles multi-tenant routing, automated messaging queues, and advanced data retrieval optimization.',
     bullets: [
-      'AI-Driven Support: Deflected over 50% of routine order inquiries and reduced manual ticket volume by launching the FLEET AI chatbot using FastAPI and Node.js.',
-      'Multi-Tenant Architecture: Architected a robust multi-tenant data model using Supabase and Row Level Security (RLS) to guarantee 100% data isolation for over 50 supplier accounts.',
+      'AI-Driven Support: Deflected over 50% of routine order inquiries and automated support-to-execution workflows by launching the FLEET AI chatbot powered by Claude and Gemini.',
+      'Workflow Automation: Built custom n8n pipelines and webhook handlers connecting conversational frontends to CRM, order management, and ERP systems.',
+      'Multi-Tenant Architecture: Architected a robust multi-tenant data model using Supabase and Row Level Security (RLS) to guarantee 100% data isolation for over 50 enterprise accounts.',
       'Performance Engineering: Optimized data pipelines with PostgreSQL Materialized Views, resulting in a 20% database performance boost.',
-      'Queue & Messaging: Integrated AWS SQS for async background worker queues and AWS SES for notifications, achieving 99.9% delivery reliability.'
+      'Queue & Messaging: Integrated AWS SQS for async background worker queues and AWS SES for notifications, ensuring 99.9% delivery reliability.'
     ],
-    tech: ['Node.js', 'FastAPI', 'Supabase (RLS)', 'PostgreSQL', 'AWS (SQS/SES)', 'Gemini API'],
+    tech: ['Node.js', 'FastAPI', 'n8n Workflows', 'Supabase (RLS)', 'PostgreSQL', 'AWS (SQS/SES)', 'Claude API', 'Gemini API'],
     demoUrl: '#',
     githubUrl: '#'
   }
@@ -58,7 +75,7 @@ export default function ProjectsSection() {
               {/* Fallback styling icon if image is loaded statically */}
               <div
                 className="d-flex align-items-center justify-content-center w-100 h-100"
-                style={{ backgroundColor: 'rgba(255, 255, 255, 0.015)', color: 'var(--accent)', fontSize: '4rem' }}
+                style={{ backgroundColor: 'rgba(255, 255, 255, 0.015)', color: 'var(--accent)', fontSize: '2.5rem' }}
               >
                 <i className={`bi ${proj.icon}`}></i>
               </div>
@@ -77,9 +94,9 @@ export default function ProjectsSection() {
                   {proj.description}
                 </p>
 
-                <ul className="text-secondary ps-3 mb-4" style={{ fontSize: 'var(--text-xs)', lineHeight: '1.6' }}>
+                <ul className="text-secondary ps-3 mb-3" style={{ fontSize: 'var(--text-xs)', lineHeight: '1.45' }}>
                   {proj.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx} className="mb-2">{bullet}</li>
+                    <li key={bIdx} className="mb-1">{bullet}</li>
                   ))}
                 </ul>
 

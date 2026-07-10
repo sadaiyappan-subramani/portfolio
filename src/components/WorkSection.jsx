@@ -4,15 +4,15 @@ const experiences = [
     company: 'Numentica UI',
     location: 'Chennai (Hybrid)',
     duration: 'Sep 2025 - Present',
-    position: 'Senior Software Engineer',
+    position: 'Software Developemnt Engineer',
     bullets: [
-      'AI Architecture & Collaboration: Partnered with cross-functional teams to architect AI-driven solutions for the FLEET AI platform, integrating GPT-4 and Gemini to seamlessly resolve 50%+ of routine enterprise order queries.',
-      'Workflow Optimization: Architected intelligent backend workflows using Node.js and AI models, leveraging robust analytical problem-solving skills to increase end-to-end data processing accuracy by 15%.',
-      'Cloud Infrastructure: Built data layers with Supabase implementing Row Level Security (RLS) to enforce 100% multi-tenant data isolation.',
-      'Data Privacy (GDPR): Standardized GDPR-compliant data handling, securing 100k+ sensitive AI conversational logs by implementing end-to-end data encryption at rest.',
-      'Latency Optimization: Streamlined deployment pipelines using AWS Route 53 and AWS SQS event queues, reducing system latency by 20%.'
+      'AI-Driven Workflows: Designed and shipped end-to-end AI-enabled workflows connecting enterprise strategy to operational execution, leveraging platforms like n8n and Microsoft Power Platform.',
+      'LLM Engineering: Spearheaded hands-on integration of Copilot, Claude, and Gemini into production-grade systems, automating manual operational processes and ticket routing.',
+      'Ambiguity & Stakeholders: Acted in a forward-deployed capacity to translate ambiguous business requirements from key stakeholders into rapid, robust technical solutions.',
+      'Data Privacy & Isolation: Standardized GDPR-compliant flows, securing 100k+ sensitive AI conversational logs while implementing Supabase Row Level Security (RLS) for 100% data isolation.',
+      'Performance Engineering: Optimized high-performance endpoints and event-driven architectures with AWS SQS message queues, decreasing processing latency by 20%.'
     ],
-    tech: ['React 19', 'Node.js', 'Supabase', 'GPT-4', 'Gemini', 'AWS', 'GDPR']
+    tech: ['Claude', 'Gemini', 'Copilot', 'n8n', 'Power Platform', 'React 19', 'Node.js', 'Supabase', 'AWS']
   },
   {
     company: 'ITOI',
@@ -43,8 +43,8 @@ export default function WorkSection() {
       {/* Timeline Track */}
       <div className="timeline-track mt-5 text-start">
         {experiences.map((exp, idx) => (
-          <div 
-            key={idx} 
+          <div
+            key={idx}
             className="timeline-item reveal-left"
             style={{ transitionDelay: `${idx * 0.25}s` }}
           >
@@ -61,7 +61,7 @@ export default function WorkSection() {
                 <span className="duration-tag">{exp.duration}</span>
               </div>
             </div>
-            
+
             <div className="timeline-body mt-2">
               <ul className="text-secondary ps-3 mb-4" style={{ fontSize: 'var(--text-sm)', lineHeight: '1.6' }}>
                 {exp.bullets.map((bullet, bIdx) => (

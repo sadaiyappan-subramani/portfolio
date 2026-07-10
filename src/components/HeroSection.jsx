@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import reactLogo from '../assets/react.svg';
 
 const roles = [
+  'Forward Deployed Engineer.',
   'MERN Stack Specialist.',
   'AI Systems Architect.',
   'LLM Pipeline Engineer.',
@@ -35,7 +36,7 @@ export default function HeroSection() {
             Senior <span className={`hero-role-text ${animate ? 'fade-slide-in' : 'fade-slide-out'}`}>{roles[currentRoleIndex]}</span>
           </h1>
           <p className="hero-description">
-            I architect AI-driven enterprise platforms, production LLM pipelines, and predictive risk modeling systems. Leveraging deep expertise across React, Node.js, and Python to transform concepts into scalable, production-ready software.
+            I build AI-powered workflows, production LLM pipelines, and integrated automation systems that connect strategy directly through execution. Leveraging deep expertise across React, Node.js, Python, and automation platforms to solve ambiguous enterprise problems.
           </p>
           <div className="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3 mt-4">
             <a href="#projects" className="primary-btn">

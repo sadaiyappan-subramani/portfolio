@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 
 const certifications = [
   {
@@ -205,6 +206,7 @@ export default function CertificationsSection() {
   const [activeCert, setActiveCert] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState('All');
+  const [showAll, setShowAll] = useState(false);
 
   const openLightbox = (cert) => {
     setActiveCert(cert);
@@ -218,6 +220,33 @@ export default function CertificationsSection() {
     }, 300);
   };
 
+  const handleFilterChange = (filter) => {
+    setActiveFilter(filter);
+    setShowAll(false);
+  };
+
+  const handleMouseMove = (e) => {
+    const card = e.currentTarget;
+    const box = card.getBoundingClientRect();
+    const x = e.clientX - box.left - box.width / 2;
+    const y = e.clientY - box.top - box.height / 2;
+    
+    // Calculate rotation angles based on cursor position relative to card center
+    const rotateX = -(y / (box.height / 2)) * 10; // max 10 deg
+    const rotateY = (x / (box.width / 2)) * 10;  // max 10 deg
+    
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    card.style.boxShadow = `0 15px 30px var(--accent-glow)`;
+    card.style.borderColor = `var(--accent)`;
+  };
+
+  const handleMouseLeave = (e) => {
+    const card = e.currentTarget;
+    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    card.style.boxShadow = '';
+    card.style.borderColor = '';
+  };
+
   // Get unique groups dynamically from certifications array
   const filterGroups = ['All', ...new Set(certifications.map((cert) => cert.group || 'Others'))];
 
@@ -225,6 +254,9 @@ export default function CertificationsSection() {
   const filteredCertifications = activeFilter === 'All'
     ? certifications
     : certifications.filter((cert) => (cert.group || 'Others') === activeFilter);
+
+  const maxInitialCerts = 6;
+  const displayedCertifications = showAll ? filteredCertifications : filteredCertifications.slice(0, maxInitialCerts);
 
   return (
     <div className="container" id="certifications">
@@ -242,7 +274,7 @@ export default function CertificationsSection() {
           <button
             key={groupName}
             className={`cert-filter-btn ${activeFilter === groupName ? 'active' : ''}`}
-            onClick={() => setActiveFilter(groupName)}
+            onClick={() => handleFilterChange(groupName)}
           >
             {groupName}
           </button>
@@ -251,7 +283,7 @@ export default function CertificationsSection() {
 
       {/* Grid of Certifications */}
       <div className="row g-4 text-start">
-        {filteredCertifications.map((cert, idx) => (
+        {displayedCertifications.map((cert, idx) => (
           <div
             key={cert.credentialId}
             className="col-md-4 cert-card-animate"
@@ -260,6 +292,8 @@ export default function CertificationsSection() {
             <div
               className="achievement-card has-image"
               onClick={() => openLightbox(cert)}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
               style={{ cursor: 'pointer' }}
             >
               <div>
@@ -303,8 +337,20 @@ export default function CertificationsSection() {
         ))}
       </div>
 
+      {/* See More Toggle Button */}
+      {filteredCertifications.length > maxInitialCerts && (
+        <div className="text-center mt-5">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="primary-btn"
+          >
+            {showAll ? 'Show Less' : 'See More'}
+          </button>
+        </div>
+      )}
+
       {/* Lightbox Modal */}
-      {activeCert && (
+      {activeCert && createPortal(
         <div
           className={`lightbox-modal ${isModalOpen ? 'active' : ''}`}
           onClick={closeLightbox}
@@ -319,7 +365,8 @@ export default function CertificationsSection() {
               <p>{activeCert.issuer}</p>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

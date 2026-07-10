@@ -435,7 +435,7 @@ section {
 /* Services Section */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 
@@ -1255,7 +1255,7 @@ body.light-theme .mountain-shape {
 /* Projects / Portfolio Grid */
 .projects-showcase-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
 }
 
@@ -1277,7 +1277,7 @@ body.light-theme .mountain-shape {
 
 .portfolio-img-box {
   position: relative;
-  height: 250px;
+  height: 130px;
   background: rgba(255, 255, 255, 0.01);
   display: flex;
   align-items: center;
@@ -2227,4 +2227,9 @@ body.light-theme .cert-filter-btn:hover {
 
 body.light-theme .cert-filter-btn.active {
   color: var(--white) !important;
+}
+
+/* Butter-smooth transition override for 3D card tilt tracking */
+.achievement-card {
+  transition: transform 0.08s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease, box-shadow 0.08s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }

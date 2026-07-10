@@ -12,7 +12,9 @@ import ContactSection from './components/ContactSection';
 import './style.css';
 
 function App() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('portfolio_theme') || 'light';
+  });
 
   useEffect(() => {
     if (theme === 'light') {
@@ -20,7 +22,7 @@ function App() {
     } else {
       document.body.classList.remove('light-theme');
     }
-    localStorage.setItem('theme', theme);
+    localStorage.setItem('portfolio_theme', theme);
   }, [theme]);
 
   useEffect(() => {

@@ -2,10 +2,16 @@ import { useState } from 'react';
 
 const services = [
   {
+    title: 'Forward Deployed Engineering',
+    icon: 'bi-briefcase-fill',
+    description: 'Bridging technical architecture and business strategy by designing, shipping, and integrating AI-enabled tools directly into enterprise operational workflows.',
+    highlighted: true
+  },
+  {
     title: 'MERN Stack Development',
     icon: 'bi-laptop',
     description: 'Engineering responsive, high-performance web applications using React 19, Next.js, and TypeScript, backed by robust Node.js and NestJS microservices.',
-    highlighted: true
+    highlighted: false
   },
   {
     title: 'AI & LLM Integration',
@@ -116,7 +122,7 @@ const skillTabs = {
       name: 'Generative AI & LLMs',
       percentage: 95,
       proficiency: 'Expert',
-      subSkills: ['GPT-4 & Gemini APIs', 'Prompt Engineering', 'LangChain / LlamaIndex', 'Vector DBs', 'FastAPI']
+      subSkills: ['Claude, Gemini & GPT-4', 'Copilot Integration', 'LangChain / LlamaIndex', 'Vector DBs', 'Prompt Engineering']
     },
     {
       id: 'aws',
@@ -128,8 +134,8 @@ const skillTabs = {
     {
       id: 'n8n',
       name: 'n8n Workflow Automation',
-      percentage: 85,
-      proficiency: 'Advanced',
+      percentage: 90,
+      proficiency: 'Expert',
       subSkills: ['n8n Core', 'Webhook Triggers', 'Custom JS Nodes', 'Third-party Integrations', 'Cron Jobs']
     },
     {
@@ -152,6 +158,13 @@ const skillTabs = {
       percentage: 80,
       proficiency: 'Advanced',
       subSkills: ['DAX Formulas', 'Interactive Reports', 'Data ETL (PowerQuery)', 'Tableau Dashboards']
+    },
+    {
+      id: 'power_platform',
+      name: 'Power Platform & Automate',
+      percentage: 88,
+      proficiency: 'Advanced',
+      subSkills: ['Power Apps', 'Power Automate', 'Dataverse Integration', 'Power BI Reporting']
     }
   ]
 };
@@ -299,6 +312,12 @@ function renderSkillIcon(id) {
           <line x1="6" y1="20" x2="6" y2="14" />
         </svg>
       );
+    case 'power_platform':
+      return (
+        <svg viewBox="0 0 24 24" className="tech-icon" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+        </svg>
+      );
     default:
       return null;
   }
@@ -317,12 +336,13 @@ const tvaLogs = {
   supabase_firebase: "Real-time cloud database. Triggers serverless functions on timeline events.",
   sql_design: "Relational schema blueprints. Optimizes complex transactional data pipelines.",
   rls_security: "Database firewall. Restricts data access strictly to authorized users.",
-  gen_ai: "Multiverse intelligence models. Chains LLM workflows and Safety alignments.",
+  gen_ai: "Multiverse intelligence models. Deploys Claude, Gemini, and Copilot workflows with safety alignments.",
   aws: "Global infrastructure mesh. Routes temporal traffic and hosts microservices.",
-  n8n: "Workflow automation loop. Triggers nodes automatically based on event logs.",
+  n8n: "Workflow automation loop. Triggers nodes automatically to connect AI agents into operational processes.",
   gdpr: "PII masking protocol. Encrypts sensitive timeline logs for user privacy.",
   swagger: "Interactive schema specifications. Generates clean auto-document templates.",
-  powerbi_tableau: "Analytical visualization hub. Aggregates data trends into dynamic charts."
+  powerbi_tableau: "Analytical visualization hub. Aggregates data trends into dynamic charts.",
+  power_platform: "Enterprise flow anchors. Maps operational pipelines using automated triggers and low-code applications."
 };
 
 export default function SkillsSection() {
