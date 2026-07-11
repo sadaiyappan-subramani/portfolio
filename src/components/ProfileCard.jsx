@@ -44,6 +44,25 @@ export default function ProfileCard() {
             I am a senior forward-deployed engineer and AI solutions builder based in Chennai/Coimbatore, India. I specialize in designing robust, scalable agent workflows and pioneering intelligent AI systems utilizing Large Language Models (LLMs) like Claude, Gemini, and Copilot. With recognized achievements twice as Employee of the Year, I excel at taking ambiguous operational challenges, designing automation pipelines (using platforms like n8n and Power Platform), and bridging technical execution with business strategy.
           </p>
 
+          {/* Automation Impact Callout */}
+          <div 
+            className="p-3 mb-4 rounded text-start"
+            style={{ 
+              backgroundColor: 'var(--accent-glow)', 
+              border: '1px solid var(--border-medium)',
+              borderLeft: '4px solid var(--accent)'
+            }}
+          >
+            <h4 style={{ fontSize: 'var(--text-sm)', fontWeight: 'bold', color: 'var(--white)', margin: '0 0 6px 0', textTransform: 'uppercase', letterSpacing: '0.5px', fontFamily: 'Anta, sans-serif' }}>
+              <i className="bi bi-robot me-2" style={{ color: 'var(--accent)' }}></i> Automation & AI Impact
+            </h4>
+            <p className="text-secondary m-0" style={{ fontSize: 'var(--text-xs)', lineHeight: '1.5' }}>
+              <strong>In Software Development:</strong> AI tooling (such as Claude Code and Copilot) compresses compilation and debugging cycles by 10x, enabling developers to shift focus from writing boilerplate to system architecture, verification, and code quality.
+              <br />
+              <strong className="d-block mt-2">In Enterprise Operations:</strong> Designing agentic workflows with platforms like n8n and Power Platform automates manual booking, routing, and notifications, turning business strategy into fully automated execution pipelines.
+            </p>
+          </div>
+
           {/* Core Relocation/Visa Meta info */}
           <div className="row g-3 mb-4 text-start">
             <div className="col-sm-6">
