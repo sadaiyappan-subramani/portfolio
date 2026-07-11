@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sadaiyappan Subramani - Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+    :root {
+      --primary: #00aa7c;
+      --text-main: #1a1a1a;
+      --text-muted: #555555;
+      --border-color: #e2e8f0;
+      --bg-color: #f7fafc;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    /* Resume Container */
+    .resume-container {
+      width: 100%;
+      max-width: 800px;
+      background-color: var(--card-bg);
+      padding: 50px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border-color);
+    }
+
+    /* Print Floating Button */
+    .print-btn-container {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .print-btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0, 170, 124, 0.2);
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+
+    .print-btn:hover {
+      background-color: #008f68;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 15px rgba(0, 170, 124, 0.3);
+    }
+
+    /* Header styling */
+    header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .contacts {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .contacts a {
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .contacts a:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .meta-badges {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .divider {
+      height: 1px;
+      background-color: var(--border-color);
+      margin: 25px 0;
+    }
+
+    /* Section styling */
+    section {
+      margin-bottom: 25px;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-main);
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 4px;
+      display: inline-block;
+    }
+
+    /* Executive summary */
+    .summary-text {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      text-align: justify;
+      line-height: 1.6;
+    }
+
+    /* Skills styling */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 24px;
+    }
+
+    .skill-row {
+      display: flex;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .skill-title {
+      font-weight: 700;
+      width: 140px;
+      flex-shrink: 0;
+      color: var(--text-main);
+    }
+
+    .skill-list {
+      color: var(--text-muted);
+    }
+
+    /* Experience styling */
+    .experience-item {
+      margin-bottom: 20px;
+    }
+
+    .experience-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .role {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .company {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .date-location {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .bullets {
+      list-style-type: disc;
+      padding-left: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .bullets li {
+      margin-bottom: 5px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    .bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Projects styling */
+    .project-item {
+      margin-bottom: 20px;
+    }
+
+    .project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    .project-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .project-tech {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Print styling overrides */
+    @media print {
+      body {
+        background-color: white;
+        padding: 0;
+      }
+
+      .resume-container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .experience-item, .project-item {
+        page-break-inside: avoid;
+      }
+    }
+
+    /* Small screen responsiveness */
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      .resume-container {
+        padding: 20px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-header, .project-header {
+        flex-direction: column;
+        gap: 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Print Button Container -->
+  <div class="print-btn-container no-print">
+    <button class="print-btn" onclick="window.print()">
+      <i class="bi bi-printer-fill"></i> Print / Save PDF
+    </button>
+  </div>
+
+  <!-- Main Resume Content -->
+  <div class="resume-container">
+    <header>
+      <h1>Sadaiyappan Subramani</h1>
+      <div class="subtitle">Full-Stack Engineer | React • Next.js • Node.js • TypeScript • AI</div>
+      <div class="contacts">
+        <a href="mailto:contact.sadaiyappan@gmail.com"><i class="bi bi-envelope-fill"></i> contact.sadaiyappan@gmail.com</a>
+        <span>|</span>
+        <a href="/" target="_blank"><i class="bi bi-globe"></i> Portfolio</a>
+        <span>|</span>
+        <a href="https://github.com" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+        <span>|</span>
+        <a href="https://linkedin.com" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a>
+      </div>
+      <div class="meta-badges">
+        <span>Chennai, India</span>
+        <span>•</span>
+        <span>Open to Relocation</span>
+        <span>•</span>
+        <span>Requires Work Visa Sponsorship</span>
+      </div>
+    </header>
+
+    <div class="divider"></div>
+
+    <section>
+      <h2>Executive Summary</h2>
+      <p class="summary-text">
+        Full-Stack Engineer with 3+ years of experience building AI-powered SaaS applications in fast-paced startup environments. Experienced in designing scalable backend architectures, developing end-to-end web applications, and integrating Large Language Models (LLMs) to automate business workflows. Proven track record of leading engineering teams, delivering production-ready solutions, optimizing application performance, and building secure, cloud-native systems. Passionate about solving complex technical challenges, driving architectural decisions, and creating intelligent software that delivers measurable business impact.
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <h2>Skills Summary</h2>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <span class="skill-title">Languages</span>
+          <span class="skill-list">JavaScript (ES6+), TypeScript, Python, Java, SQL</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-title">AI & LLM</span>
+          <span class="skill-list">OpenAI (GPT-4), Google Gemini, Anthropic Claude</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-title">Frontend</span>
+          <span class="skill-list">React.js, Next.js (SSR/SSG), Angular, Tailwind CSS</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-title">Backend</span>
+          <span class="skill-list">Node.js, NestJS, Express.js, Supabase (Edge Functions), FastAPI (Python), Django/DRF</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-title">Databases</span>
+          <span class="skill-list">PostgreSQL (RLS), MongoDB, Firebase (Firestore/Auth), Supabase</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-title">Cloud & DevOps</span>
+          <span class="skill-list">AWS (Route 53, SES, SQS), N8n (Automation), CI/CD, Kubernetes, Terraform</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-title">Compliance & Tools</span>
+          <span class="skill-list">GDPR-aware data handling, Swagger/OpenAPI, Power BI, Tableau</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-title">Core Competencies</span>
+          <span class="skill-list">Agile Development, Cross-Functional Collaboration</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <h2>Experience</h2>
+      
+      <div class="experience-item">
+        <div class="experience-header">
+          <span class="role">Senior Software Engineer <span class="company">@ Numentica UI</span></span>
+          <span class="date-location">Sep 2025 – Present | Chennai (Hybrid)</span>
+        </div>
+        <ul class="bullets">
+          <li><strong>AI Architecture & Collaboration:</strong> Built AI-assisted order-support features using GPT-4 and Gemini, automating over 50% of routine customer queries and reducing manual support workload.</li>
+          <li><strong>Workflow Optimization:</strong> Architected intelligent backend workflows using Node.js and AI models, leveraging robust analytical problem-solving skills to increase end-to-end data processing accuracy by 15%.</li>
+          <li><strong>Cloud Infrastructure:</strong> Built robust data layers with Supabase following industry best practices, implementing advanced Row Level Security to enforce 100% multi-tenant data isolation, preventing cross-account access for global clients.</li>
+          <li><strong>Data Privacy (GDPR):</strong> Standardized GDPR-compliant data handling, securing 100k+ sensitive AI conversational logs by implementing end-to-end data encryption at rest and automated masking frameworks.</li>
+          <li><strong>Latency Optimization:</strong> Expedited system performance and reduced latency by 20% by streamlining deployment pipelines using AWS Route 53 and decoupling microservices via AWS SQS event queues.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item" style="margin-top: 20px;">
+        <div class="experience-header">
+          <span class="role">Technical Lead & Senior Developer <span class="company">@ ITOI Technologies</span></span>
+          <span class="date-location">Jan 2023 – Sep 2025 | Coimbatore (Hybrid)</span>
+        </div>
+        <ul class="bullets">
+          <li><strong>Team Leadership & Teamwork:</strong> Led a cross-functional team of 10 developers, driving end-to-end design, technical decision-making, and successful deployment of enterprise web applications.</li>
+          <li><strong>High-Performance Backend:</strong> Spearheaded mission-critical microservices using NestJS and FastAPI to process 2M+ daily API requests, optimizing I/O efficiency to reduce server overhead by 15% in a fast-paced environment.</li>
+          <li><strong>Collaborative Quality Engineering:</strong> Boosted team code quality scores by 40% and reduced production defects by 25% through rigorous code reviews built around architecture best practices.</li>
+          <li><strong>Awards:</strong> Recognized as Employee of the Year (2024 & 2025) for driving high-impact contributions to core API infrastructure aligning with critical business objectives.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <h2>Projects</h2>
+
+      <div class="project-item">
+        <div class="project-header">
+          <span class="project-title">TMS Insights (Vision Zero Analytics)</span>
+          <span class="project-tech">FastAPI, React 19, Deck.gl, PostgreSQL, OpenAI</span>
+        </div>
+        <ul class="bullets">
+          <li><strong>AI-Driven Analytics:</strong> Developed a map-integrated Safety Copilot and Grant Assistant using FastAPI and OpenAI to automate federal grant drafting (SS4A), reducing report preparation time by 75%.</li>
+          <li><strong>Anomaly Detection:</strong> Built a statistical engine in Python utilizing Chi-Square Residual Analysis and Two-Proportion Z-Tests to isolate crash hot-spots across 50+ multi-dimensional data variables.</li>
+          <li><strong>Predictive Risk Modelling:</strong> Trained a Scikit-Learn Logistic Regression model with cyclical hour encoding, achieving a 0.84 ROC-AUC score to predict severe crash probabilities and extract risk factor Odds Ratios.</li>
+          <li><strong>Geospatial Visualization:</strong> Integrated Deck.gl and MapLibre GL in React 19 to render hardware-accelerated hexagonal bins and heatmaps of 10k+ spatial records with sub-second responsive filtering.</li>
+          <li><strong>What-If Simulator:</strong> Designed a counterfactual simulation engine utilizing FHWA Crash Modification Factors (CMF) to model street interventions and project future fatal and injury reductions.</li>
+        </ul>
+      </div>
+
+      <div class="project-item" style="margin-top: 20px;">
+        <div class="project-header">
+          <span class="project-title">Supplynow (FLEET AI)</span>
+          <span class="project-tech">Node.js, PostgreSQL, Supabase, AWS</span>
+        </div>
+        <ul class="bullets">
+          <li><strong>AI-Driven Support:</strong> Deflected over 50% of routine order inquiries and significantly reduced manual ticket volume by launching the FLEET AI chatbot using FastAPI and Node.js.</li>
+          <li><strong>Multi-Tenant Architecture:</strong> Architected a robust multi-tenant data model using Supabase and Row Level Security to guarantee 100% data isolation for over 50 diverse supplier accounts.</li>
+          <li><strong>Performance Engineering:</strong> Accelerated complex data retrieval pipelines by engineering PostgreSQL Materialized Views, resulting in a 20% performance improvement for high-volume database queries.</li>
+          <li><strong>Messaging Reliability:</strong> Executed seamless background infrastructure by integrating AWS SQS for asynchronous task processing and AWS SES for event-driven notifications, achieving 99.9% message delivery reliability.</li>
+          <li><strong>Model Optimization:</strong> Calibrated core system intelligence in collaboration with cross-functional teams to fine-tune OpenAI and Gemini models, boosting system response accuracy by 15% within the first quarter.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <h2>Education</h2>
+      
+      <div class="experience-item">
+        <div class="experience-header">
+          <span class="role">Bachelor of Engineering in Computer Science</span>
+          <span class="date-location">Akshaya College of Engineering & Technology, Coimbatore | 7.86 CGPA</span>
+        </div>
+        <ul class="bullets">
+          <li>First Class with Distinction equivalent. Key Modules: Data Structures, Database Management Systems, Cloud Computing, Software Engineering.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item" style="margin-top: 15px;">
+        <div class="experience-header">
+          <span class="role">Diploma in Computer Science</span>
+          <span class="date-location">Christ the King Polytechnic College, Coimbatore | 8.1 CGPA</span>
+        </div>
+        <ul class="bullets">
+          <li>Issued 2018. Focus on core programming and information technology fundamentals.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>

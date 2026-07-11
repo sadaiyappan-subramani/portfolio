@@ -101,7 +101,7 @@ export default function ProfileCard() {
             <a href="#contact" className="primary-btn">
               Hire Me
             </a>
-            <a href="#" className="outline-btn">
+            <a href="/resume.html" target="_blank" rel="noopener noreferrer" className="outline-btn">
               Download CV
             </a>
           </div>
