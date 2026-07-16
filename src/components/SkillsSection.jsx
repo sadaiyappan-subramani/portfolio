@@ -116,6 +116,29 @@ const skillTabs = {
       subSkills: ['RLS Policies', 'Supabase Auth Integration', 'Multi-tenant Isolation', 'Access Rules']
     }
   ],
+  automation: [
+    {
+      id: 'n8n',
+      name: 'n8n Workflow Automation',
+      percentage: 92,
+      proficiency: 'Expert',
+      subSkills: ['n8n Core', 'Webhook Triggers', 'Custom JS Nodes', 'Third-party Integrations', 'Cron Jobs']
+    },
+    {
+      id: 'zapier',
+      name: 'Zapier Automation',
+      percentage: 90,
+      proficiency: 'Expert',
+      subSkills: ['Zapier Zaps', 'Webhooks by Zapier', 'Formatter & Filters', 'Multi-step Workflows', 'API Integrations']
+    },
+    {
+      id: 'power_platform',
+      name: 'Power Apps & Power Automate',
+      percentage: 88,
+      proficiency: 'Advanced',
+      subSkills: ['Canvas & Model-Driven Apps', 'Dataverse Integration', 'Cloud & Desktop Flows', 'Custom Connectors']
+    }
+  ],
   tools: [
     {
       id: 'gen_ai',
@@ -130,13 +153,6 @@ const skillTabs = {
       percentage: 88,
       proficiency: 'Advanced',
       subSkills: ['AWS SQS / SES', 'Route 53 DNS', 'EC2 & S3 Buckets', 'Lambda (Serverless)', 'IAM Policies']
-    },
-    {
-      id: 'n8n',
-      name: 'n8n Workflow Automation',
-      percentage: 90,
-      proficiency: 'Expert',
-      subSkills: ['n8n Core', 'Webhook Triggers', 'Custom JS Nodes', 'Third-party Integrations', 'Cron Jobs']
     },
     {
       id: 'gdpr',
@@ -158,13 +174,6 @@ const skillTabs = {
       percentage: 80,
       proficiency: 'Advanced',
       subSkills: ['DAX Formulas', 'Interactive Reports', 'Data ETL (PowerQuery)', 'Tableau Dashboards']
-    },
-    {
-      id: 'power_platform',
-      name: 'Power Platform & Automate',
-      percentage: 88,
-      proficiency: 'Advanced',
-      subSkills: ['Power Apps', 'Power Automate', 'Dataverse Integration', 'Power BI Reporting']
     }
   ]
 };
@@ -286,6 +295,19 @@ function renderSkillIcon(id) {
           <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
         </svg>
       );
+    case 'zapier':
+      return (
+        <svg viewBox="0 0 24 24" className="tech-icon" fill="currentColor">
+          <g transform="translate(12,12)">
+            <path d="M0,0 L0,-10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+            <path d="M0,0 L9.51,-3.09" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+            <path d="M0,0 L5.88,8.09" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+            <path d="M0,0 L-5.88,8.09" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+            <path d="M0,0 L-9.51,-3.09" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+            <circle cx="0" cy="0" r="2.2" fill="currentColor" />
+          </g>
+        </svg>
+      );
     case 'gdpr':
       return (
         <svg viewBox="0 0 24 24" className="tech-icon" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -339,6 +361,7 @@ const tvaLogs = {
   gen_ai: "Multiverse intelligence models. Deploys Claude, Gemini, and Copilot workflows with safety alignments.",
   aws: "Global infrastructure mesh. Routes temporal traffic and hosts microservices.",
   n8n: "Workflow automation loop. Triggers nodes automatically to connect AI agents into operational processes.",
+  zapier: "Cloud automation connector. Synchronizes third-party APIs and services with zero-friction event loops.",
   gdpr: "PII masking protocol. Encrypts sensitive timeline logs for user privacy.",
   swagger: "Interactive schema specifications. Generates clean auto-document templates.",
   powerbi_tableau: "Analytical visualization hub. Aggregates data trends into dynamic charts.",
@@ -351,6 +374,7 @@ export default function SkillsSection() {
   const tabButtons = [
     { id: 'frontend', label: 'Frontend & Languages' },
     { id: 'backend', label: 'Backend & Databases' },
+    { id: 'automation', label: 'Automation' },
     { id: 'tools', label: 'AI, Cloud & Tools' }
   ];
 
